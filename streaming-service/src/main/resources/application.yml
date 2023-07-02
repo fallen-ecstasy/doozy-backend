@@ -1,0 +1,11 @@
+server:
+  port: 4000
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: system123
+    url: jdbc://localhost:3306/db2

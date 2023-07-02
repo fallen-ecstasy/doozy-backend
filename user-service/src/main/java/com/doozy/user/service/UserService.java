@@ -22,5 +22,5 @@ public interface UserService {
 
     List<Playlist> getAllPlaylist(Long uid) throws UserNotFoundException;
 
-    Playlist createPlaylist(Long uid, Playlist playlist);
+    Playlist createPlaylist(Long uid, Playlist playlist) throws UserNotFoundException;
 }

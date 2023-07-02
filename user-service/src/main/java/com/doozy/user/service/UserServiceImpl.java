@@ -11,11 +11,13 @@ import com.doozy.user.repository.UserRepository;
 import lombok.SneakyThrows;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements UserService{
 
     private UserRepository userRepo;
@@ -116,7 +118,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Playlist createPlaylist(Long uid, Playlist playlist) {
+    public Playlist createPlaylist(Long uid, Playlist playlist) throws UserNotFoundException {
         Optional<User> optionalUser = userRepo.findById(uid);
         if(optionalUser.isEmpty()) throw new UserNotFoundException("User Not Found!");
         User user = optionalUser.get();
@@ -124,8 +126,6 @@ public class UserServiceImpl implements UserService{
         List<Book> playlistBooks = playlist.getPlaylistBooks();
         for (Book i:
              playlistBooks) {
-            Example<Book> sExample = (Example<Book>) i;
-            if(!bookRepo.exists(sExample))
         }
 
         return null;

@@ -80,7 +80,7 @@ public class UserController {
     }
 
     @PostMapping("/api/user/playlists/create")
-    public Playlist createNewPlaylist(@RequestParam(name = "uid")Long uid,@RequestBody Playlist playlist){
+    public Playlist createNewPlaylist(@RequestParam(name = "uid")Long uid,@RequestBody Playlist playlist) throws UserNotFoundException {
         return userService.createPlaylist(uid,playlist);
     }
 
